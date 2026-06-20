@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🖼️ CIFAR-10 Image Classification using CNN with PyTorch
+# 🖼️ CNN-Based Image Recognition using PyTorch
 
 [![Python](https://img.shields.io/badge/Python-3.10+-3776AB?style=for-the-badge\&logo=python\&logoColor=white)](https://python.org)
 [![PyTorch](https://img.shields.io/badge/PyTorch-Deep%20Learning-EE4C2C?style=for-the-badge\&logo=pytorch\&logoColor=white)](https://pytorch.org)
