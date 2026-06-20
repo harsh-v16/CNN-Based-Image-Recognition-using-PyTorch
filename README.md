@@ -227,7 +227,7 @@ The CNN achieved **74.1% test accuracy** while reducing training loss from **0.7
 # 📂 Project Structure
 
 ```text
-CIFAR10-CNN-PyTorch/
+CNN-Based-Image-Recognition-using-PyTorch/
 │
 ├── CNN_for_CIFAR10.ipynb
 ├── requirements.txt
