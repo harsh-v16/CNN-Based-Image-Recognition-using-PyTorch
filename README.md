@@ -20,12 +20,11 @@ This project demonstrates how to build and train a Convolutional Neural Network 
 
 The model learns visual patterns from thousands of labeled images and predicts the correct object category from ten different classes.
 
-The CNN achieved an impressive **74.1% test accuracy** on the CIFAR-10 dataset.
+The CNN achieved **74.1% test accuracy** on the CIFAR-10 dataset.
 
 The project covers the complete Deep Learning workflow:
 
-* Dataset loading
-* Data preprocessing
+* Dataset loading and preprocessing
 * CNN architecture design
 * Model training
 * Loss optimization
@@ -46,9 +45,7 @@ The model learns hierarchical visual features such as edges, shapes, textures, a
 
 # 📊 Dataset Information
 
-The project uses the **CIFAR-10 Dataset**, a widely used benchmark dataset for image classification.
-
-### Dataset Statistics
+The project uses the CIFAR-10 Dataset, a widely used benchmark dataset for image classification.
 
 | Property          | Value       |
 | ----------------- | ----------- |
@@ -61,7 +58,7 @@ The project uses the **CIFAR-10 Dataset**, a widely used benchmark dataset for i
 
 # 🏷️ Classes
 
-The model classifies images into the following categories:
+The model classifies images into:
 
 * ✈️ Airplane
 * 🚗 Automobile
@@ -86,7 +83,6 @@ The model classifies images into the following categories:
 * Max Pooling Layers
 * Batch Training
 * Accuracy Evaluation
-* GPU Compatible Training
 * Real-world Computer Vision Project
 
 ---
@@ -104,8 +100,8 @@ The model classifies images into the following categories:
 
 * Build CNN Architecture
 * Apply Convolution Operations
-* Feature Extraction
-* Activation Functions
+* Extract Visual Features
+* Apply Activation Functions
 * Pooling Operations
 
 ## Training Process
@@ -126,23 +122,11 @@ The model classifies images into the following categories:
 # 🏗️ CNN Architecture
 
 ```text
-Input Image (32x32x3)
+Input Image (32×32×3)
 
         ↓
 
-Convolution Layer
-
-        ↓
-
-ReLU Activation
-
-        ↓
-
-Max Pooling
-
-        ↓
-
-Convolution Layer
+Conv2D (3 → 32, Kernel=3, Padding=1)
 
         ↓
 
@@ -150,19 +134,51 @@ ReLU Activation
 
         ↓
 
-Max Pooling
+MaxPool2D (2×2)
 
         ↓
 
-Flatten Layer
+Conv2D (32 → 64, Kernel=3, Padding=1)
 
         ↓
 
-Fully Connected Layer
+ReLU Activation
 
         ↓
 
-Output Layer (10 Classes)
+MaxPool2D (2×2)
+
+        ↓
+
+Conv2D (64 → 128, Kernel=3, Padding=1)
+
+        ↓
+
+ReLU Activation
+
+        ↓
+
+MaxPool2D (2×2)
+
+        ↓
+
+Flatten
+
+        ↓
+
+Linear (2048 → 256)
+
+        ↓
+
+ReLU Activation
+
+        ↓
+
+Linear (256 → 10)
+
+        ↓
+
+Output Classes
 ```
 
 ---
@@ -175,8 +191,8 @@ Output Layer (10 Classes)
 | Dataset       | CIFAR-10             |
 | Task          | Image Classification |
 | Classes       | 10                   |
+| Epochs        | 10                   |
 | Loss Function | CrossEntropyLoss     |
-| Accuracy      | 74.1%                |
 
 ---
 
@@ -187,11 +203,24 @@ Output Layer (10 Classes)
 | Test Accuracy     | **74.1%** |
 | Number of Classes | 10        |
 | Dataset           | CIFAR-10  |
-| Framework         | PyTorch   |
+| Epochs            | 10        |
 
-The Convolutional Neural Network achieved **74.1% test accuracy** on the CIFAR-10 dataset.
+### Training Loss
 
-The model successfully learned meaningful visual features and demonstrated strong image classification performance across ten different object categories.
+| Epoch | Loss  |
+| ----- | ----- |
+| 1     | 0.756 |
+| 2     | 0.632 |
+| 3     | 0.529 |
+| 4     | 0.428 |
+| 5     | 0.347 |
+| 6     | 0.279 |
+| 7     | 0.212 |
+| 8     | 0.172 |
+| 9     | 0.135 |
+| 10    | 0.113 |
+
+The CNN achieved **74.1% test accuracy** while reducing training loss from **0.756 to 0.113** in only 10 epochs.
 
 ---
 
@@ -201,17 +230,8 @@ The model successfully learned meaningful visual features and demonstrated stron
 CIFAR10-CNN-PyTorch/
 │
 ├── CNN_for_CIFAR10.ipynb
-├── data/
-│   └── cifar-10-batches-py/
-│       ├── data_batch_1
-│       ├── data_batch_2
-│       ├── data_batch_3
-│       ├── data_batch_4
-│       ├── data_batch_5
-│       ├── test_batch
-│       └── batches.meta
-│
 ├── requirements.txt
+├── .gitignore
 └── README.md
 ```
 
@@ -222,9 +242,9 @@ CIFAR10-CNN-PyTorch/
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/harsh-v16/CIFAR10-CNN-PyTorch.git
+git clone YOUR_REPOSITORY_URL
 
-cd CIFAR10-CNN-PyTorch
+cd YOUR_REPOSITORY_NAME
 ```
 
 ### 2. Install Dependencies
@@ -248,7 +268,7 @@ jupyter notebook CNN_for_CIFAR10.ipynb
 | PyTorch     | Deep Learning Framework   |
 | TorchVision | Computer Vision Utilities |
 | NumPy       | Numerical Computing       |
-| Matplotlib  | Visualization             |
+| Matplotlib  | Data Visualization        |
 | Jupyter     | Notebook Environment      |
 
 ---
@@ -261,7 +281,7 @@ jupyter notebook CNN_for_CIFAR10.ipynb
 | PyTorch          | Deep Learning Framework |
 | TorchVision      | Image Processing        |
 | NumPy            | Numerical Computing     |
-| Matplotlib       | Data Visualization      |
+| Matplotlib       | Visualization           |
 | Jupyter Notebook | Development Environment |
 | GitHub           | Version Control         |
 
@@ -271,15 +291,16 @@ jupyter notebook CNN_for_CIFAR10.ipynb
 
 Through this project, I learned:
 
-* Building Convolutional Neural Networks (CNNs)
-* Image Classification using PyTorch
+* Understanding Convolution Filters
+* Feature Maps and Kernels
+* CNN Training using Backpropagation
+* Image Feature Extraction
+* Multi-Class Image Classification
 * Working with CIFAR-10 Dataset
-* Data Loading and Preprocessing
-* Feature Extraction using Convolution Layers
-* Pooling Operations
-* Multi-Class Classification
-* Model Evaluation using Accuracy Metrics
-* Deep Learning Workflow Implementation
+* Building Deep Learning Models using PyTorch
+* CNN Architecture Design
+* Loss Optimization and Model Evaluation
+* Practical Computer Vision Fundamentals
 
 ---
 
@@ -289,9 +310,9 @@ Through this project, I learned:
 * Batch Normalization
 * Dropout Regularization
 * Hyperparameter Tuning
-* Transfer Learning with ResNet
+* Transfer Learning using ResNet
 * Streamlit Deployment
-* Model Explainability Techniques
+* Model Explainability
 
 ---
 
