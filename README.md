@@ -242,9 +242,9 @@ CIFAR10-CNN-PyTorch/
 ### 1. Clone the Repository
 
 ```bash
-git clone YOUR_REPOSITORY_URL
+git clone https://github.com/harsh-v16/CNN-Based-Image-Recognition-using-PyTorch.git
 
-cd YOUR_REPOSITORY_NAME
+cd CNN-Based-Image-Recognition-using-PyTorch
 ```
 
 ### 2. Install Dependencies
